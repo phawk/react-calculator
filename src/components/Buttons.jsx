@@ -32,38 +32,58 @@ const DarkButton = styled(Button)`
 
 export default class Display extends Component {
   render() {
-    const { operation } = this.props;
+    const { operation, onPress } = this.props;
 
     return (
       <React.Fragment>
         <Row>
-          <DarkButton onClick={() => this.props.onPress("clear")}>C</DarkButton>
-          <DarkButton onClick={() => this.props.onPress("togglePositive")}>+/-</DarkButton>
-          <DarkButton onClick={() => this.props.onPress("percent")}>%</DarkButton>
-          <Operation active={operation === "divide"} onClick={() => this.props.onPress("divide")}>/</Operation>
+          <DarkButton onClick={() => onPress("clear")}>C</DarkButton>
+          <DarkButton onClick={() => onPress("togglePositive")}>+/-</DarkButton>
+          <DarkButton onClick={() => onPress("percent")}>%</DarkButton>
+          <Operation
+            active={operation === "divide"}
+            onClick={() => onPress("divide")}
+          >
+            /
+          </Operation>
         </Row>
         <Row>
-          <Button onClick={() => this.props.onPress(7)}>7</Button>
-          <Button onClick={() => this.props.onPress(8)}>8</Button>
-          <Button onClick={() => this.props.onPress(9)}>9</Button>
-          <Operation active={operation === "multiply"} onClick={() => this.props.onPress("multiply")}>&times;</Operation>
+          <Button onClick={() => onPress(7)}>7</Button>
+          <Button onClick={() => onPress(8)}>8</Button>
+          <Button onClick={() => onPress(9)}>9</Button>
+          <Operation
+            active={operation === "multiply"}
+            onClick={() => onPress("multiply")}
+          >
+            &times;
+          </Operation>
         </Row>
         <Row>
-          <Button onClick={() => this.props.onPress(4)}>4</Button>
-          <Button onClick={() => this.props.onPress(5)}>5</Button>
-          <Button onClick={() => this.props.onPress(6)}>6</Button>
-          <Operation active={operation === "subtract"} onClick={() => this.props.onPress("subtract")}>&ndash;</Operation>
+          <Button onClick={() => onPress(4)}>4</Button>
+          <Button onClick={() => onPress(5)}>5</Button>
+          <Button onClick={() => onPress(6)}>6</Button>
+          <Operation
+            active={operation === "subtract"}
+            onClick={() => onPress("subtract")}
+          >
+            &ndash;
+          </Operation>
         </Row>
         <Row>
-          <Button onClick={() => this.props.onPress(1)}>1</Button>
-          <Button onClick={() => this.props.onPress(2)}>2</Button>
-          <Button onClick={() => this.props.onPress(3)}>3</Button>
-          <Operation active={operation === "add"} onClick={() => this.props.onPress("add")}>+</Operation>
+          <Button onClick={() => onPress(1)}>1</Button>
+          <Button onClick={() => onPress(2)}>2</Button>
+          <Button onClick={() => onPress(3)}>3</Button>
+          <Operation
+            active={operation === "add"}
+            onClick={() => onPress("add")}
+          >
+            +
+          </Operation>
         </Row>
         <Row style={{ paddingBottom: "2px" }}>
-          <Button onClick={() => this.props.onPress(0)} style={{ flexBasis: "230%" }}>0</Button>
-          <Button onClick={() => this.props.onPress(".")}>.</Button>
-          <Operation onClick={() => this.props.onPress("equals")}>=</Operation>
+          <Button onClick={() => onPress(0)} style={{ flexBasis: "230%" }}>0</Button>
+          <Button onClick={() => onPress(".")}>.</Button>
+          <Operation onClick={() => onPress("equals")}>=</Operation>
         </Row>
       </React.Fragment>
     );

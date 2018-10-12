@@ -15,13 +15,12 @@ class App extends Component {
     return (
       <CalculatorFrame>
         <Display {...this.state} />
-        <Buttons onPress={this.onPress} operation={this.state.operation} />
+        <Buttons onPress={this.handleButtonPress} operation={this.state.operation} />
       </CalculatorFrame>
     );
   }
 
-  onPress = (button) => {
-    console.log("button", button);
+  handleButtonPress = (button) => {
     this.setState(calculator(this.state, button));
   }
 }
