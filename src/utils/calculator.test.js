@@ -21,26 +21,6 @@ describe("Calculator", () => {
         operation: null
       });
     });
-
-    it("doesn't allow . to input", () => {
-      const ouput = calculator({}, ".")
-
-      expect(ouput).toEqual({
-        left: "0",
-        right: "",
-        operation: null
-      });
-    });
-
-    it("doesn't allow operations", () => {
-      const ouput = calculator({}, "divide")
-
-      expect(ouput).toEqual({
-        left: "0",
-        right: "",
-        operation: null
-      });
-    });
   });
 
   describe("when left is provided", () => {
@@ -93,6 +73,16 @@ describe("Calculator", () => {
         left: "65",
         right: "",
         operation: "divide"
+      });
+    });
+
+    it("prefills 0 before .", () => {
+      const ouput = calculator({ left: "7", operation: "add" }, ".")
+
+      expect(ouput).toEqual({
+        left: "7",
+        right: "0.",
+        operation: "add"
       });
     });
   });

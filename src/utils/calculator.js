@@ -28,12 +28,10 @@ const togglePolarity = number => {
 
 export default (state, input) => {
   let output = {
-    left: state.left || "",
+    left: state.left || "0",
     right: state.right || "",
     operation: state.operation || null,
   };
-
-  if (output.left === "0") output.left = "";
 
   if (hasPendingOperation(output) && isOperation(input)) {
     output.left = String(evaluate(output));
@@ -42,7 +40,7 @@ export default (state, input) => {
 
   switch (input) {
     case "clear":
-      output.left = "";
+      output.left = "0";
       output.right = "";
       output.operation = null;
       break;
@@ -73,19 +71,15 @@ export default (state, input) => {
     default:
       if (state.operation) {
         // Working on the RHS
-        if ((input !== "." && input !== 0) || hasRightNumber(output)) {
-          output.right += input;
-        }
+        if (output.right === "" && input === ".") output.right = "0";
+        output.right += input;
       } else {
         // Working on the LHS
-        if ((input !== "." && input !== 0) || hasLeftNumber(output)) {
-          output.left += input;
-        }
+        if (output.left === "0" && input !== ".") output.left = "";
+        output.left += input;
       }
       break;
   }
-
-  if (output.left === "") output.left = "0";
 
   return output;
 }
