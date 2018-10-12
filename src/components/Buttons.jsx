@@ -17,7 +17,7 @@ const Button = styled.div`
   font-size: 38px;
   margin: 0 1px;
   flex-basis: 100%;
-  outline: ${props => props.active ? "solid 2px rgba(255,255,255,0.3)" : "none"};
+  box-shadow: ${props => props.active ? "inset 0px 0px 0px 4px rgba(0,0,0,0.15)" : "none"};
 `;
 
 const Operation = styled(Button)`
