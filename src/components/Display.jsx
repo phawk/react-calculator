@@ -9,12 +9,8 @@ const Screen = styled.div`
   text-align: right;
 `;
 
-export default class Display extends Component {
-  render() {
-    return (
-      <Screen>
-        { this.props.right ? this.props.right : this.props.left }
-      </Screen>
-    );
-  }
-}
+export default (props) => (
+  <Screen>
+    { props.right ? props.right : props.left }
+  </Screen>
+);
