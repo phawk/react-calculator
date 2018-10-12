@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Screen = styled.div`
-  background-color: #2D2D2D;
   color: #fff;
   padding: 10px 24px;
   font-size: 44px;
