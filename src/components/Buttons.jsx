@@ -46,7 +46,7 @@ export default class Display extends Component {
           <Button onClick={() => this.props.onPress(4)}>4</Button>
           <Button onClick={() => this.props.onPress(5)}>5</Button>
           <Button onClick={() => this.props.onPress(6)}>6</Button>
-          <Operation onClick={() => this.props.onPress("minus")}>&ndash;</Operation>
+          <Operation onClick={() => this.props.onPress("subtract")}>&ndash;</Operation>
         </Row>
         <Row>
           <Button onClick={() => this.props.onPress(1)}>1</Button>

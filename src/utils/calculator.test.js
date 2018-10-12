@@ -6,13 +6,22 @@ describe("Calculator", () => {
       const ouput = calculator({}, 7)
 
       expect(ouput).toEqual({
-        left: 7,
+        left: "7",
         right: null,
         operation: null
       });
-    })
-    it("doesn't allow 0 to input", () => {})
-    it("doesn't allow . to input", () => {})
-    it("doesn't operations", () => {})
+    });
+
+    it("doesn't allow 0 to input", () => {
+      const ouput = calculator({}, 0)
+
+      expect(ouput).toEqual({
+        left: "",
+        right: null,
+        operation: null
+      });
+    });
+    it("doesn't allow . to input", () => {});
+    it("doesn't operations", () => {});
   });
 });
