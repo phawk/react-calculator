@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Row = styled.div`
@@ -30,62 +30,48 @@ const DarkButton = styled(Button)`
   color: #fff;
 `;
 
-export default class Display extends Component {
-  render() {
-    const { operation, onPress } = this.props;
-
-    return (
-      <React.Fragment>
-        <Row>
-          <DarkButton onClick={() => onPress("clear")}>C</DarkButton>
-          <DarkButton onClick={() => onPress("togglePositive")}>+/-</DarkButton>
-          <DarkButton onClick={() => onPress("percent")}>%</DarkButton>
-          <Operation
-            active={operation === "divide"}
-            onClick={() => onPress("divide")}
-          >
-            /
-          </Operation>
-        </Row>
-        <Row>
-          <Button onClick={() => onPress(7)}>7</Button>
-          <Button onClick={() => onPress(8)}>8</Button>
-          <Button onClick={() => onPress(9)}>9</Button>
-          <Operation
-            active={operation === "multiply"}
-            onClick={() => onPress("multiply")}
-          >
-            &times;
-          </Operation>
-        </Row>
-        <Row>
-          <Button onClick={() => onPress(4)}>4</Button>
-          <Button onClick={() => onPress(5)}>5</Button>
-          <Button onClick={() => onPress(6)}>6</Button>
-          <Operation
-            active={operation === "subtract"}
-            onClick={() => onPress("subtract")}
-          >
-            &ndash;
-          </Operation>
-        </Row>
-        <Row>
-          <Button onClick={() => onPress(1)}>1</Button>
-          <Button onClick={() => onPress(2)}>2</Button>
-          <Button onClick={() => onPress(3)}>3</Button>
-          <Operation
-            active={operation === "add"}
-            onClick={() => onPress("add")}
-          >
-            +
-          </Operation>
-        </Row>
-        <Row style={{ paddingBottom: "2px" }}>
-          <Button onClick={() => onPress(0)} style={{ flexBasis: "230%" }}>0</Button>
-          <Button onClick={() => onPress(".")}>.</Button>
-          <Operation onClick={() => onPress("equals")}>=</Operation>
-        </Row>
-      </React.Fragment>
-    );
-  }
-}
+export default ({ operation, onPress }) => (
+  <React.Fragment>
+    <Row>
+      <DarkButton onClick={() => onPress("clear")}>C</DarkButton>
+      <DarkButton onClick={() => onPress("togglePositive")}>+/-</DarkButton>
+      <DarkButton onClick={() => onPress("percent")}>%</DarkButton>
+      <Operation
+        active={operation === "divide"}
+        onClick={() => onPress("divide")}
+      >/</Operation>
+    </Row>
+    <Row>
+      <Button onClick={() => onPress(7)}>7</Button>
+      <Button onClick={() => onPress(8)}>8</Button>
+      <Button onClick={() => onPress(9)}>9</Button>
+      <Operation
+        active={operation === "multiply"}
+        onClick={() => onPress("multiply")}
+      >&times;</Operation>
+    </Row>
+    <Row>
+      <Button onClick={() => onPress(4)}>4</Button>
+      <Button onClick={() => onPress(5)}>5</Button>
+      <Button onClick={() => onPress(6)}>6</Button>
+      <Operation
+        active={operation === "subtract"}
+        onClick={() => onPress("subtract")}
+      >&ndash;</Operation>
+    </Row>
+    <Row>
+      <Button onClick={() => onPress(1)}>1</Button>
+      <Button onClick={() => onPress(2)}>2</Button>
+      <Button onClick={() => onPress(3)}>3</Button>
+      <Operation
+        active={operation === "add"}
+        onClick={() => onPress("add")}
+      >+</Operation>
+    </Row>
+    <Row style={{ paddingBottom: "2px" }}>
+      <Button onClick={() => onPress(0)} style={{ flexBasis: "230%" }}>0</Button>
+      <Button onClick={() => onPress(".")}>.</Button>
+      <Operation onClick={() => onPress("equals")}>=</Operation>
+    </Row>
+  </React.Fragment>
+);
