@@ -21,6 +21,10 @@ const evaluate = state => {
       return left + right;
   }
 };
+const togglePolarity = number => {
+  number = parseFloat(number, 10);
+  return String(number * -1);
+};
 
 export default (state, input) => {
   let output = {
@@ -29,6 +33,8 @@ export default (state, input) => {
     operation: state.operation || null,
   };
 
+  if (output.left === "0") output.left = "";
+
   if (hasPendingOperation(output) && isOperation(input)) {
     output.left = String(evaluate(output));
     output.right = "";
@@ -36,8 +42,16 @@ export default (state, input) => {
 
   switch (input) {
     case "clear":
+      output.left = "";
+      output.right = "";
+      output.operation = null;
       break;
     case "togglePositive":
+      if (hasRightNumber(output)) {
+        output.right = togglePolarity(output.right);
+      } else {
+        output.left = togglePolarity(output.left);
+      }
       break;
     case "percent":
       break;
@@ -70,6 +84,8 @@ export default (state, input) => {
       }
       break;
   }
+
+  if (output.left === "") output.left = "0";
 
   return output;
 }

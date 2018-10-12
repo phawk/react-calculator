@@ -16,7 +16,7 @@ describe("Calculator", () => {
       const ouput = calculator({}, 0)
 
       expect(ouput).toEqual({
-        left: "",
+        left: "0",
         right: "",
         operation: null
       });
@@ -26,7 +26,7 @@ describe("Calculator", () => {
       const ouput = calculator({}, ".")
 
       expect(ouput).toEqual({
-        left: "",
+        left: "0",
         right: "",
         operation: null
       });
@@ -36,7 +36,7 @@ describe("Calculator", () => {
       const ouput = calculator({}, "divide")
 
       expect(ouput).toEqual({
-        left: "",
+        left: "0",
         right: "",
         operation: null
       });
@@ -136,6 +136,54 @@ describe("Calculator", () => {
       expect(ouput).toEqual({
         left: "-1",
         right: "",
+        operation: null
+      });
+    });
+
+    it("can multiply", () => {
+      const ouput = calculator({ left: "13.5", right: "2", operation: "multiply" }, "equals")
+
+      expect(ouput).toEqual({
+        left: "27",
+        right: "",
+        operation: null
+      });
+    });
+
+    it("can divide", () => {
+      const ouput = calculator({ left: "13", right: "2", operation: "divide" }, "equals")
+
+      expect(ouput).toEqual({
+        left: "6.5",
+        right: "",
+        operation: null
+      });
+    });
+
+    it("can clear", () => {
+      const ouput = calculator({ left: "13", right: "2", operation: "divide" }, "clear");
+
+      expect(ouput).toEqual({
+        left: "0",
+        right: "",
+        operation: null
+      });
+    });
+
+    it("can toggle polarity", () => {
+      const ouput = calculator({ left: "-13", right: "", operation: null }, "togglePositive");
+
+      expect(ouput).toEqual({
+        left: "13",
+        right: "",
+        operation: null
+      });
+
+      const ouput2 = calculator({ left: "13", right: "2", operation: null }, "togglePositive");
+
+      expect(ouput2).toEqual({
+        left: "13",
+        right: "-2",
         operation: null
       });
     });
