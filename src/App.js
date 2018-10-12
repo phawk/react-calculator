@@ -15,7 +15,10 @@ class App extends Component {
     return (
       <CalculatorFrame>
         <Display {...this.state} />
-        <Buttons onPress={this.handleButtonPress} operation={this.state.operation} />
+        <Buttons
+          onPress={this.handleButtonPress}
+          operation={this.state.operation}
+        />
       </CalculatorFrame>
     );
   }
