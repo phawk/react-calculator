@@ -44,7 +44,7 @@ describe("Calculator", () => {
       });
     });
 
-    it("doesn't allow operations", () => {
+    it("allows operations", () => {
       const ouput = calculator({ left: "65" }, "divide")
 
       expect(ouput).toEqual({
