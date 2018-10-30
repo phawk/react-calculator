@@ -7,7 +7,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "7",
-        right: "",
+        right: null,
         operation: null
       });
     });
@@ -17,7 +17,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "0",
-        right: "",
+        right: null,
         operation: null
       });
     });
@@ -29,7 +29,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "130",
-        right: "",
+        right: null,
         operation: null
       });
     });
@@ -39,7 +39,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "7.",
-        right: "",
+        right: null,
         operation: null
       });
     });
@@ -49,7 +49,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "65",
-        right: "",
+        right: null,
         operation: "divide"
       });
     });
@@ -71,7 +71,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "65",
-        right: "",
+        right: null,
         operation: "divide"
       });
     });
@@ -93,7 +93,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "25",
-        right: "",
+        right: null,
         operation: null
       });
     });
@@ -103,7 +103,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "4",
-        right: "",
+        right: null,
         operation: "divide"
       });
     });
@@ -115,7 +115,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "25",
-        right: "",
+        right: null,
         operation: null
       });
     });
@@ -125,7 +125,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "-1",
-        right: "",
+        right: null,
         operation: null
       });
     });
@@ -135,7 +135,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "27",
-        right: "",
+        right: null,
         operation: null
       });
     });
@@ -145,7 +145,7 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "6.5",
-        right: "",
+        right: null,
         operation: null
       });
     });
@@ -155,17 +155,17 @@ describe("Calculator", () => {
 
       expect(ouput).toEqual({
         left: "0",
-        right: "",
+        right: null,
         operation: null
       });
     });
 
     it("can toggle polarity", () => {
-      const ouput = calculator({ left: "-13", right: "", operation: null }, "togglePositive");
+      const ouput = calculator({ left: "-13", right: null, operation: null }, "togglePositive");
 
       expect(ouput).toEqual({
         left: "13",
-        right: "",
+        right: null,
         operation: null
       });
 

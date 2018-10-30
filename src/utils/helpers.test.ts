@@ -1,7 +1,16 @@
 import {
+  hasRightNumber,
   togglePolarity,
   evaluate
 } from "./helpers";
+
+describe("hasRightNumber", () => {
+  it("checks for presence of a number", () => {
+    expect(hasRightNumber({ right: null})).toBe(false);
+    expect(hasRightNumber({ right: ""})).toBe(false);
+    expect(hasRightNumber({ right: "12" })).toBe(true);
+  });
+});
 
 describe("togglePolarity", () => {
   it("flips polarity of numbers", () => {
