@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CalculatorFrame from './components/CalculatorFrame';
 import Display from './components/Display';
 import Buttons from './components/Buttons';
-import calculator from './utils/calculator';
+import calculator from './utils/calculator.ts';
 
 class App extends Component {
   state = {

@@ -7,7 +7,13 @@ import {
   evaluate
 } from "./helpers";
 
-export default (state, input) => {
+interface CalculatorState {
+  left: string;
+  right?: string;
+  operation?: string | null;
+}
+
+export default (state: CalculatorState, input: string): CalculatorState => {
   let output = {
     left: state.left || "0",
     right: state.right || "",

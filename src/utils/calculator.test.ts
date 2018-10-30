@@ -3,7 +3,7 @@ import calculator from './calculator';
 describe("Calculator", () => {
   describe("when input is empty", () => {
     it("allows number entry", () => {
-      const ouput = calculator({}, 7)
+      const ouput = calculator({ left: "" }, "7")
 
       expect(ouput).toEqual({
         left: "7",
@@ -13,7 +13,7 @@ describe("Calculator", () => {
     });
 
     it("doesn't allow 0 to input", () => {
-      const ouput = calculator({}, 0)
+      const ouput = calculator({ left: "" }, "0")
 
       expect(ouput).toEqual({
         left: "0",
@@ -25,7 +25,7 @@ describe("Calculator", () => {
 
   describe("when left is provided", () => {
     it("concatenates number entry", () => {
-      const ouput = calculator({ left: "13" }, 0)
+      const ouput = calculator({ left: "13" }, "0")
 
       expect(ouput).toEqual({
         left: "130",
@@ -57,7 +57,7 @@ describe("Calculator", () => {
 
   describe("when left and operation are provided", () => {
     it("edits right number", () => {
-      const ouput = calculator({ left: "13", operation: "add" }, 2)
+      const ouput = calculator({ left: "13", operation: "add" }, "2")
 
       expect(ouput).toEqual({
         left: "13",
