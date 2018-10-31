@@ -3,11 +3,12 @@ import CalculatorFrame from './components/CalculatorFrame';
 import Display from './components/Display';
 import Buttons from './components/Buttons';
 import calculator from './utils/calculator';
+import CalculatorState from './utils/CalculatorState';
 
 class App extends Component {
-  state = {
+  state: CalculatorState = {
     left: "0",
-    right: "",
+    right: null,
     operation: null
   }
 
@@ -23,7 +24,7 @@ class App extends Component {
     );
   }
 
-  handleButtonPress = (button) => {
+  handleButtonPress = (button: string) => {
     this.setState(calculator(this.state, button));
   }
 }

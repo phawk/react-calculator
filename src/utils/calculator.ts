@@ -7,27 +7,29 @@ import {
   evaluate
 } from "./helpers";
 
-export default (state, input) => {
+import CalculatorState from "./CalculatorState"
+
+export default (state: CalculatorState, input: string): CalculatorState => {
   let output = {
     left: state.left || "0",
-    right: state.right || "",
+    right: state.right || null,
     operation: state.operation || null,
   };
 
   if (hasPendingOperation(output) && isOperation(input)) {
     output.left = String(evaluate(output));
-    output.right = "";
+    output.right = null;
   }
 
   switch (input) {
     case "clear":
       output.left = "0";
-      output.right = "";
+      output.right = null;
       output.operation = null;
       break;
     case "togglePositive":
       if (hasRightNumber(output)) {
-        output.right = togglePolarity(output.right);
+        output.right = togglePolarity(output.right || "0");
       } else {
         output.left = togglePolarity(output.left);
       }
@@ -45,14 +47,15 @@ export default (state, input) => {
     case "equals":
       if (hasPendingOperation(output)) {
         output.left = String(evaluate(output));
-        output.right = "";
+        output.right = null;
         output.operation = null;
       }
       break;
     default:
       if (state.operation) {
         // Working on the RHS
-        if (output.right === "" && input === ".") output.right = "0";
+        if (output.right === null && input === ".") output.right = "0";
+        if (output.right === null) output.right = "";
         output.right += input;
       } else {
         // Working on the LHS
